@@ -1,0 +1,83 @@
+.form-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: table;
+    background-image: url('../../assets/images/flower.jpg');
+}
+
+.form-content {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    display: table;
+}
+
+.conatiner-description {
+    color: #fff;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 90px 0px 35px 0px;
+}
+
+.conatiner-subdescription {
+    color: #fff;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0px 0px 45px 0px;
+}
+
+.lupa-cont {
+    float: left;
+    height: 45px;
+    background-color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+svg {
+    color: #757575 !important;
+    font-size: 23px !important;
+    padding: 10px 0px 10px 10px !important;
+}
+
+.search-input {
+    width: 80%;
+    height: 45px;
+    border-radius: 0px;
+    border: none;
+    padding: 0px 2%;
+    font-size: 16px;
+    float: left;
+    outline: none;
+    background-color: #fff;
+}
+
+.small-desc{
+    color: rgb(160, 160, 160);
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 10px 0px 135px 0px;
+    display: table;
+}
+
+.media-select{
+    float: left;
+    height: 45px;
+    font-size: 16px;
+    color: rgb(160, 160, 160);
+    background-color: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    padding: 0px 10px 0px 0px;
+    outline: none;
+}
