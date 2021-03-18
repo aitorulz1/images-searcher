@@ -4,11 +4,15 @@ import { FaSistrix } from "react-icons/fa";
 import Error from '../Error/Error';
 import './Formulario.css';
 
-export default function Formulario({guardarBusqueda}) {
+export default function Formulario({guardarBusqueda, guardarSelectMedia}) {
 
 
     const [ concept, guardarConcept ] = useState('');
     const [ error, guardarError ] = useState(false);
+
+    const [ selected, guardarSelected ] = useState('images');
+
+
 
     const onSubmit = e => {
         e.preventDefault();
@@ -18,8 +22,8 @@ export default function Formulario({guardarBusqueda}) {
             return;
         }
         guardarError(false);
-
         guardarBusqueda(concept);
+        guardarSelectMedia(selected);
     }
 
 
@@ -52,7 +56,10 @@ export default function Formulario({guardarBusqueda}) {
                                 onChange={e => guardarConcept(e.target.value)}
                             />
 
-                            <select className="media-select">
+                            <select 
+                                className="media-select"
+                                onChange={e => guardarSelected(e.target.value)}
+                                >
                                 <option value="images">images</option>
                                 <option value="video">video</option>
                             </select>

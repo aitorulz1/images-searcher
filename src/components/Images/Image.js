@@ -25,34 +25,35 @@ export default function Image({imagen}) {
     } = imagen;
 
     return (
-        <div classname="">
+
+        <div classname="image-container">
             
-            <img src={largeImageURL} />
+            <img src={previewURL} />
 
-            <div className="info-extra">
-                
-                <div className="image">
-                    <img src={Like} />
-                </div>
-                <div className="info">
-                    {likes}
-                </div>
-                <div className="image">
-                    <img src={Comment} />
-                </div>
-                <div className="info">
-                    {comments}
+                <div className="info-extra">
+                    
+                    <div className="image">
+                        <img src={Like} />
+                    </div>
+                    <div className="info">
+                        {likes}
+                    </div>
+                    <div className="image">
+                        <img src={Comment} />
+                    </div>
+                    <div className="info">
+                        {comments}
+                    </div>
+
                 </div>
 
-            </div>
-
-            <div className="descarga-button">
-                <a href={largeImageURL}
-                    target='_blank'
-                >
-                    Descargar
-                </a>
-            </div>
+                <div className="descarga-button">
+                    <a href={largeImageURL}
+                        target='_blank'
+                    >
+                        Descargar
+                    </a>
+                </div>
 
         </div>
     )
