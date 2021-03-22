@@ -4,7 +4,7 @@ import { FaSistrix } from "react-icons/fa";
 import Error from '../Error/Error';
 import './Formulario.css';
 
-export default function Formulario({guardarBusqueda, guardarSelectMedia}) {
+export default function Formulario({guardarBusqueda, guardarSelectMedia,  hideWelcome}) {
 
 
     const [ concept, guardarConcept ] = useState('');
@@ -12,7 +12,9 @@ export default function Formulario({guardarBusqueda, guardarSelectMedia}) {
 
     const [ selected, guardarSelected ] = useState('images');
 
-
+    const cambiamosWelcomeState = () => {
+        hideWelcome(false)
+    }
 
     const onSubmit = e => {
         e.preventDefault();
@@ -21,16 +23,21 @@ export default function Formulario({guardarBusqueda, guardarSelectMedia}) {
             guardarError(true);
             return;
         }
+        
         guardarError(false);
         guardarBusqueda(concept);
         guardarSelectMedia(selected);
+        cambiamosWelcomeState();
     }
 
 
     return (
         <div className="form-container">
         
+                    <div className="logo">A.A. images</div>
+
             <div className="form-content">
+
 
                     <div className="conatiner-description">
                         Stunning free images to let your creativity have no limits

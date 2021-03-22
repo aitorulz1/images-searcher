@@ -2,4 +2,31 @@
   margin: 0 auto;
   width: 97.5%;
   display: table;
+  padding-top: 80px;
+}
+
+
+
+.buttons-container {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0px;
+}
+
+.button-anterior {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 60px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.button-posterior {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 60px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
 }

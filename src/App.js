@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+
 import './App.css';
 
+import Welcome from './components/Welcome/Welcome';
+import Sorry from './components/Sorry/Sorry';
 import Formulario from './components/Formulario/Formulario';
 import ListadoImages from './components/Images/ListadoImages';
 import ListadoVideos from './components/Videos/ListadoVideos';
@@ -12,6 +15,9 @@ function App() {
   const [ busqueda, guardarBusqueda ] = useState('');
   const [ imagenes, guardarImagenes ] = useState([]);
   const [ videos, guardarVideos ] = useState([]);
+
+  const [ welcome, hideWelcome ] = useState(true);
+  const [ nothing, nothingToShow ] = useState(false)
 
   const [ selectmedia, guardarSelectMedia ] = useState('')
 
@@ -25,11 +31,14 @@ function App() {
     const consultarApi = async() => {
       
       if(busqueda === '') return;
+      if(busqueda.length === 0) {
+        return nothing
+      }
 
       const imagesPerPage = 30;
       const key = '15980012-981f41cd5920ac3ee2112a85d';
       const urlphoto = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagesPerPage}&page=${paginaActual}`;
-      const urlvideos = `https://pixabay.com/api/videos/?key=${key}&q=${busqueda}&per_page=${imagesPerPage}`;
+      const urlvideos = `https://pixabay.com/api/videos/?key=${key}&q=${busqueda}&per_page=${imagesPerPage}&page=${paginaActual}`;
 
       const respuesta = await fetch(urlphoto);
       const resultado = await respuesta.json();
@@ -45,6 +54,10 @@ function App() {
       // Calcular total páginas
       const calcularPaginas = Math.ceil(resultado.totalHits / 30);
       guardarTotalPaginas(calcularPaginas);
+
+        // Mover hacia arriba
+      const goingUp = document.querySelector('.main-wrapper');
+      goingUp.scrollIntoView({behavior: "smooth"});
 
     }
     consultarApi();
@@ -75,16 +88,21 @@ function App() {
   }
 
 
-  // Mover hacia arriba
-  const goingUp = document.querySelector('.main-wrapper')
+
 
   return (
     <div className="main-wrapper">
+
       
       <Formulario 
         guardarBusqueda={guardarBusqueda}
         guardarSelectMedia={guardarSelectMedia}
+        hideWelcome={hideWelcome}
       />
+
+      {welcome ? <Welcome /> : null }
+      
+      {nothing ? <Sorry /> : null }
 
       <div className="listadoImages-container">
 
@@ -101,7 +119,7 @@ function App() {
 
 
 
-      <div className="">
+      <div className="buttons-container">
 
         { 
           (paginaActual === 1) ? null :
@@ -118,7 +136,7 @@ function App() {
           (paginaActual === totalPaginas) ? null :        
             <button
               type='button'
-              className='button-anterior'
+              className='button-posterior'
               onClick={paginaSiguiente}
               >
                   next &raquo;

@@ -7,13 +7,17 @@ import './Video.css';
 export default function Video({video}) {
    
     const {
-
+        comments,
+        likes,
+        userImageURL,
+        videos
     } = video;
 
     return (
-        <div className="video-container">
-
-
+        <div className="video-delimitador">
+            <div className="video-container">
+                <iframe allow="autoplay" src={videos.small.url}></iframe>
+            </div>
         </div>
     )
 }

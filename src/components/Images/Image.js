@@ -26,7 +26,7 @@ export default function Image({imagen}) {
 
     return (
 
-        <div classname="image-container">
+        <div className="image-container">
             
             <img src={previewURL} />
 

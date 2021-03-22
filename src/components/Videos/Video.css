@@ -77,3 +77,26 @@ input {
     color: #000;
     text-transform: lowercase;
 }
+
+.video-delimitador {
+    width: 100%;
+    margin: auto;
+    display: inline-grid;
+    padding-top: 15px;
+}
+
+.video-container {
+    height:0px;
+    width:100%;
+    max-width:560px; 
+    padding-top:56.25%; 
+    position:relative;
+}
+
+iframe{
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+}

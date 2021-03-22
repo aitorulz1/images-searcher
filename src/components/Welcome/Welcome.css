@@ -1,0 +1,35 @@
+.welcome-container {
+    position: relative;
+    width: 100%;
+}
+
+.welcome-content {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+    padding: 5% 0% 0% 0%;
+    text-align: center;
+}
+
+.welcome-title {
+    font-family: fantasy;
+    font-size: 40px;
+    padding: 20px 0px 0px 0px;
+}
+
+.welcome-subtitle {
+    font-family: fantasy;
+    font-size: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+.welcome-text {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 680px;
+    padding: 20px 0px 0px 0px;
+}

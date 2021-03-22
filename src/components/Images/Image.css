@@ -2,8 +2,9 @@ input {
     background-color: #fff !important;
 }
 
-.image-container{
-    display: grid;
+.image-container {
+    display: inline-block;
+    padding-bottom: 10px;
     width: 100%;
 }
 
