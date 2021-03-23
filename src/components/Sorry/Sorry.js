@@ -1,14 +1,16 @@
-import React from 'react'
+import React from 'react';
+
+import './Sorry.css';
 
 export default function Sorry() {
     return (
-<div className="welcome-container">
+        <div className="welcome-container">
             <div className="welcome-content">
             
-                <div className="welcome-title">Welcome</div>
-                <div className="welcome-subtitle">to A.A. images</div>
+                <div className="sorry-title">Nothing Found</div>
+                <div className="sorry-subtitle">We Have NO Results</div>
                
-                <div className="welcome-text">
+                <div className="sorry-text">
                     We Are Sorry to Inform You that the Search you Just tried, have no results.
 
                     Try with another one!

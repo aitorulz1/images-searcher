@@ -30,12 +30,12 @@ function App() {
     
     const consultarApi = async() => {
       
-      if(busqueda === '') return;
-      if(busqueda.length === 0) {
-        return nothing
-      }
+      if(busqueda === '') {
+        return;
+      }  
+      
 
-      const imagesPerPage = 30;
+      const imagesPerPage = 28;
       const key = '15980012-981f41cd5920ac3ee2112a85d';
       const urlphoto = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagesPerPage}&page=${paginaActual}`;
       const urlvideos = `https://pixabay.com/api/videos/?key=${key}&q=${busqueda}&per_page=${imagesPerPage}&page=${paginaActual}`;
@@ -43,21 +43,25 @@ function App() {
       const respuesta = await fetch(urlphoto);
       const resultado = await respuesta.json();
 
+
       const respuestavideo = await fetch(urlvideos);
       const resultadovideo = await respuestavideo.json();
 
       guardarImagenes(resultado.hits)    
       guardarVideos(resultadovideo.hits)
 
+
       console.log(resultadovideo.hits)    
 
       // Calcular total páginas
-      const calcularPaginas = Math.ceil(resultado.totalHits / 30);
+      const calcularPaginas = Math.ceil(resultado.totalHits / 28);
       guardarTotalPaginas(calcularPaginas);
 
         // Mover hacia arriba
       const goingUp = document.querySelector('.main-wrapper');
       goingUp.scrollIntoView({behavior: "smooth"});
+
+      
 
     }
     consultarApi();
@@ -100,52 +104,66 @@ function App() {
         hideWelcome={hideWelcome}
       />
 
-      {welcome ? <Welcome /> : null }
+      {welcome ? <Welcome /> : null}
       
-      {nothing ? <Sorry /> : null }
+      { (imagenes.length < 1 && !welcome) ? <Sorry /> :
 
-      <div className="listadoImages-container">
+        <div>
+                <div className="listadoImages-container">
 
-      {selectmedia === 'images' ?
-          <ListadoImages
-            imagenes={imagenes}
-          /> 
-        :           
-          <ListadoVideos
-            videos={videos}
-          /> 
-        }
-      </div>
+                {selectmedia === 'images' ?
+                    <ListadoImages
+                      imagenes={imagenes}
+                    /> 
+                  :           
+                    <ListadoVideos
+                      videos={videos}
+                    /> 
+                  }
+                  
+                </div>
 
 
+              
+              <div className="buttons-container">
 
-      <div className="buttons-container">
+              {
+                nothing ? null :
 
-        { 
-          (paginaActual === 1) ? null :
-            <button
-              type='button'
-              className='button-anterior'
-              onClick={paginaAnterior}
-              >
-                  &laquo; previous
-            </button>
-        }
+                  <div>
 
-        { 
-          (paginaActual === totalPaginas) ? null :        
-            <button
-              type='button'
-              className='button-posterior'
-              onClick={paginaSiguiente}
-              >
-                  next &raquo;
-            </button>
-        }
+                          { 
+                            (paginaActual === 1) ? null :
+                              <button
+                                type='button'
+                                className='button-anterior'
+                                onClick={paginaAnterior}
+                                >
+                                    &laquo; previous
+                              </button>
+                          }
 
-      </div>
+                          { 
+                            (paginaActual === totalPaginas) ? null :        
+                              <button
+                                type='button'
+                                className='button-posterior'
+                                onClick={paginaSiguiente}
+                                >
+                                    next &raquo;
+                              </button>
+                          }
+
+                  </div>
+              }
+
+
+              </div>
       
-   
+        </div>
+        
+      }
+
 
     </div>
   );

@@ -26,6 +26,11 @@
     font-family: fantasy;
 }
 
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .conatiner-description {
     color: #fff;
     font-size: 28px;
@@ -91,4 +96,11 @@ svg {
     border: none;
     padding: 0px 10px 0px 0px;
     outline: none;
+}
+
+.bywho{
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 0px;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaSistrix } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 import Error from '../Error/Error';
 import './Formulario.css';
@@ -34,7 +35,9 @@ export default function Formulario({guardarBusqueda, guardarSelectMedia,  hideWe
     return (
         <div className="form-container">
         
-                    <div className="logo">A.A. images</div>
+                    <div className="logo">
+                        <a href='/'>A.A. images</a>
+                    </div>
 
             <div className="form-content">
 
@@ -79,6 +82,8 @@ export default function Formulario({guardarBusqueda, guardarSelectMedia,  hideWe
                                 type='submit'
                                 value='search'
                             /> */}
+
+                            <div className="bywho">by Aitor Arina</div>
 
                         </form>
 
